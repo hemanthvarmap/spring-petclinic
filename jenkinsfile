@@ -1,0 +1,19 @@
+node{
+  stage('scm'){
+  // git clone
+  git 'https://github.com/hemanthvarmap/spring-petclinic.git'
+  
+  }
+  stage('build packages'){
+  // mvn packages
+  sh label: '', script: 'mvn package'
+  
+  }
+  stage('show test results'){
+   junit 'target/surefire-reports/*.xml'
+}
+  stage('archiving the artifacts')
+  // artifacts
+  archiveArtifacts 'target/*.jar'
+  
+}
