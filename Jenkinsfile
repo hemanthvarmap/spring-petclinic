@@ -6,7 +6,7 @@ node {
     }
     stage('build the package'){
     // mvn package
-    archiveArtifacts 'mvn package'
+    sh label: '', script: 'mvn package'
 
     }
     stage('archival'){
